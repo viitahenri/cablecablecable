@@ -12,4 +12,9 @@ public class Door : MonoBehaviour
     {
         _closedGameObject.SetActive(false);
     }
+
+    public void Close()
+    {
+        _closedGameObject.SetActive(true);
+    }
 }

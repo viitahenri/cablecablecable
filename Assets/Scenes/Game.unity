@@ -621,6 +621,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -630,6 +634,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1374495426}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1374495426}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
@@ -645,11 +657,27 @@ PrefabInstance:
       value: Open
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Door, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Door, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
