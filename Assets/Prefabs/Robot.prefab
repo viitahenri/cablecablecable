@@ -2495,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8151094324629250909
 Transform:
   m_ObjectHideFlags: 0
@@ -2842,6 +2842,11 @@ MonoBehaviour:
   _sliderImage: {fileID: 6350575185823424104}
   _animator: {fileID: 217815609}
   _cableTransform: {fileID: 243333791}
+  _graphicsParents:
+  - {fileID: 7410720656640731735}
+  - {fileID: 336346323443652415}
+  - {fileID: 8151094324629250909}
+  - {fileID: 7885156696933849569}
   _lineSegmentLength: 2
   _minMoveSpeed: 0.2
   _maxMoveSpeed: 5
@@ -3511,7 +3516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7410720656640731735
 Transform:
   m_ObjectHideFlags: 0
@@ -3628,7 +3633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7885156696933849569
 Transform:
   m_ObjectHideFlags: 0

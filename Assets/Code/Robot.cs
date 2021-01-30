@@ -15,6 +15,14 @@ public class Robot : MonoBehaviour
         Struggle
     }
 
+    enum Direction : int
+    {
+        Right = 0,
+        Front = 1,
+        Left = 2,
+        Back = 3,
+    }
+
     public UnityEvent OnDeath = new UnityEvent();
 
     [Header("References")]
@@ -23,6 +31,9 @@ public class Robot : MonoBehaviour
     [SerializeField] private Image _sliderImage;
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _cableTransform;
+
+    [Header("Graphics (right-front-left-back)")]
+    [SerializeField] private List<Transform> _graphicsParents = new List<Transform>();
 
     [Header("Gameplay properties")]
     [SerializeField] private float _lineSegmentLength = 1f;
@@ -39,6 +50,7 @@ public class Robot : MonoBehaviour
     private int _currentLineIndex = 0;
     private State _currentState;
     private float _currentMoveSpeed;
+    private Transform _activeGraphics;
 
     void Start()
     {
@@ -56,6 +68,8 @@ public class Robot : MonoBehaviour
         _lineRenderer.materials[1].color = Random.ColorHSV(0f, 1f, .8f, .8f, .8f, .8f);
 
         _currentState = State.Unreeling;
+
+        _activeGraphics = _graphicsParents[(int)Direction.Front];
     }
 
     void Update()
@@ -97,22 +111,29 @@ public class Robot : MonoBehaviour
         {
             Vector2 dir = Vector2.zero;
 
+            // right-front-left-back
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 dir += Vector2.up;
+                _activeGraphics = _graphicsParents[(int)Direction.Back];
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 dir += Vector2.down;
+                _activeGraphics = _graphicsParents[(int)Direction.Front];
             }
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 dir += Vector2.left;
+                _activeGraphics = _graphicsParents[(int)Direction.Left];
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 dir += Vector2.right;
+                _activeGraphics = _graphicsParents[(int)Direction.Right];
             }
+
+            _graphicsParents.ForEach(p => p.gameObject.SetActive(p == _activeGraphics ? true : false));
 
             _rigidbody.MovePosition(_rigidbody.position + dir.normalized * _currentMoveSpeed * Time.fixedDeltaTime);
 
