@@ -101,6 +101,8 @@ public class Robot : MonoBehaviour
             {
                 _currentState = State.Struggle;
                 OnDeath?.Invoke();
+                _rigidbody.useFullKinematicContacts = true;
+                _rigidbody.isKinematic = true;
             }
         }
     }
