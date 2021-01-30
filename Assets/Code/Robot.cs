@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class Robot : MonoBehaviour
@@ -23,6 +24,8 @@ public class Robot : MonoBehaviour
     [SerializeField] private float _maxMoveSpeed = 5f;
     [SerializeField] private AnimationCurve _struggleCurve = new AnimationCurve();
     [SerializeField] private int _maxSegmentCount = 10;
+
+    [SerializeField] private UnityEvent _onDropSegment = new UnityEvent();
 
     private Rigidbody2D _rigidbody;
     private LineRenderer _lineRenderer;
@@ -72,6 +75,8 @@ public class Robot : MonoBehaviour
                 _lineRenderer.positionCount += 1;
                 _lineRenderer.SetPosition(_currentLineIndex, transform.position);
                 _previousLinePosition = transform.position;
+
+                _onDropSegment?.Invoke();
             }
         }
     }
