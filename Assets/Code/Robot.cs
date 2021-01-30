@@ -114,6 +114,7 @@ public class Robot : MonoBehaviour
             if (_lineRenderer.positionCount >= _maxSegmentCount || Input.GetKeyDown(KeyCode.K))
             {
                 _currentState = State.Struggle;
+                Die();
             }
         }
     }
