@@ -62,12 +62,6 @@ public class Robot : MonoBehaviour
 
         if (_currentState == State.Unreeling)
         {
-            if (_lineRenderer.positionCount >= _maxSegmentCount)
-            {
-                _currentState = State.Struggle;
-                OnDeath?.Invoke();
-            }
-
             _lineRenderer.SetPosition(_currentLineIndex, transform.position);
 
             var dist = Vector2.Distance(transform.position, _previousLinePosition);
@@ -85,6 +79,12 @@ public class Robot : MonoBehaviour
                 _previousLinePosition = transform.position;
 
                 _onDropSegment?.Invoke();
+            }
+
+            if (_lineRenderer.positionCount >= _maxSegmentCount)
+            {
+                _currentState = State.Struggle;
+                OnDeath?.Invoke();
             }
         }
     }
