@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Robot : MonoBehaviour
@@ -14,6 +15,7 @@ public class Robot : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject _lineRendererPrefab;
     [SerializeField] private TextMeshProUGUI _hudText;
+    [SerializeField] private Image _sliderImage;
 
     [Header("Gameplay properties")]
     [SerializeField] private float _lineSegmentLength = 1f;
@@ -60,7 +62,9 @@ public class Robot : MonoBehaviour
 
             var dist = Vector2.Distance(transform.position, _previousLinePosition);
 
-            _currentMoveSpeed = _minMoveSpeed + _maxMoveSpeed * _struggleCurve.Evaluate(1f - dist / _lineSegmentLength);
+            var normalized = dist / _lineSegmentLength;
+            _currentMoveSpeed = _minMoveSpeed + _maxMoveSpeed * _struggleCurve.Evaluate(1f - normalized);
+            _sliderImage.fillAmount = normalized;
 
             if (dist > _lineSegmentLength)
             {

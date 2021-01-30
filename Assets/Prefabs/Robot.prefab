@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lineRendererPrefab: {fileID: 3075705991600358952, guid: 584fbb884000245e48b9f470a2cdaf93, type: 3}
   _hudText: {fileID: 1577686441697667635}
+  _sliderImage: {fileID: 6350575185823424104}
   _lineSegmentLength: 2
   _minMoveSpeed: 0.2
   _maxMoveSpeed: 5
@@ -182,6 +183,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6469705755372826501}
     m_Modifications:
+    - target: {fileID: 2002328842081858168, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.568
+      objectReference: {fileID: 0}
     - target: {fileID: 6200722697038158853, guid: 80bba3e5db64b401881039daae97758f, type: 3}
       propertyPath: m_Name
       value: RobotCanvas
@@ -286,5 +291,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6350575185823424104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2002328842081858168, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+  m_PrefabInstance: {fileID: 4893289659702225936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
