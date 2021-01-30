@@ -698,16 +698,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4465796574628234999, guid: fb82c6546feac4e1f8051596f635c093, type: 3}
+      propertyPath: _anchor
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465796574628234999, guid: fb82c6546feac4e1f8051596f635c093, type: 3}
       propertyPath: _hudText
       value: 
       objectReference: {fileID: 1162017067}
     - target: {fileID: 4465796574628234999, guid: fb82c6546feac4e1f8051596f635c093, type: 3}
       propertyPath: _maxSegmentCount
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4465796574628234999, guid: fb82c6546feac4e1f8051596f635c093, type: 3}
       propertyPath: _lineSegmentLength
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4465796574628234999, guid: fb82c6546feac4e1f8051596f635c093, type: 3}
       propertyPath: _lineRendererPrefab
