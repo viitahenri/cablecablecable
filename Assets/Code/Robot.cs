@@ -54,14 +54,9 @@ public class Robot : MonoBehaviour
     private Transform _activeGraphics;
     private bool _isInit = false;
 
-    void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _canvasTransform.gameObject.SetActive(false);
-    }
-
     public void Init(int index)
     {
+        _rigidbody = GetComponent<Rigidbody2D>();
         var line = Instantiate(_lineRendererPrefab);
         line.transform.position = Vector3.zero;
         _lineRenderer = line.GetComponent<LineRenderer>();
