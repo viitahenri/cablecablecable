@@ -12,7 +12,7 @@ public class Robot : MonoBehaviour
     enum State
     {
         Unreeling,
-        Struggle
+        Dead
     }
 
     enum Direction : int
@@ -53,6 +53,7 @@ public class Robot : MonoBehaviour
     private float _currentMoveSpeed;
     private Transform _activeGraphics;
     private bool _isInit = false;
+    private Vector2 _movementDirection = Vector2.zero;
 
     public void Init(int index)
     {
@@ -90,6 +91,32 @@ public class Robot : MonoBehaviour
 
         if (_currentState == State.Unreeling)
         {
+            // right-front-left-back
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                _movementDirection += Vector2.up;
+                _activeGraphics = _graphicsParents[(int)Direction.Back];
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                _movementDirection += Vector2.down;
+                _activeGraphics = _graphicsParents[(int)Direction.Front];
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                _movementDirection += Vector2.left;
+                _activeGraphics = _graphicsParents[(int)Direction.Left];
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                _movementDirection += Vector2.right;
+                _activeGraphics = _graphicsParents[(int)Direction.Right];
+            }
+
+            _graphicsParents.ForEach(p => p.gameObject.SetActive(p == _activeGraphics ? true : false));
+
+            _animator.SetFloat(ANIM_WALK_SPEED_TRIGGER_NAME, (_movementDirection.normalized * _currentMoveSpeed).magnitude);
+
             _lineRenderer.SetPosition(_currentLineIndex, transform.position);
 
             var dist = Vector2.Distance(transform.position, _previousLinePosition);
@@ -101,20 +128,24 @@ public class Robot : MonoBehaviour
 
             if (dist > _lineSegmentLength)
             {
-                _currentLineIndex++;
-                _lineRenderer.positionCount += 1;
-                _lineRenderer.SetPosition(_currentLineIndex, transform.position);
-                _previousLinePosition = transform.position;
-
-                _onDropSegment?.Invoke();
+                DropSegment(transform.position);
             }
 
             if (_lineRenderer.positionCount >= _maxSegmentCount || Input.GetKeyDown(KeyCode.K))
             {
-                _currentState = State.Struggle;
+                _currentState = State.Dead;
                 Die();
             }
         }
+    }
+
+    void DropSegment(Vector3 position)
+    {
+        _currentLineIndex++;
+        _lineRenderer.positionCount += 1;
+        _lineRenderer.SetPosition(_currentLineIndex, position);
+        _previousLinePosition = position;
+        _onDropSegment?.Invoke();
     }
 
     void FixedUpdate()
@@ -124,35 +155,8 @@ public class Robot : MonoBehaviour
 
         if (_currentState == State.Unreeling)
         {
-            Vector2 dir = Vector2.zero;
-
-            // right-front-left-back
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                dir += Vector2.up;
-                _activeGraphics = _graphicsParents[(int)Direction.Back];
-            }
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                dir += Vector2.down;
-                _activeGraphics = _graphicsParents[(int)Direction.Front];
-            }
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                dir += Vector2.left;
-                _activeGraphics = _graphicsParents[(int)Direction.Left];
-            }
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                dir += Vector2.right;
-                _activeGraphics = _graphicsParents[(int)Direction.Right];
-            }
-
-            _graphicsParents.ForEach(p => p.gameObject.SetActive(p == _activeGraphics ? true : false));
-
-            _rigidbody.MovePosition(_rigidbody.position + dir.normalized * _currentMoveSpeed * Time.fixedDeltaTime);
-
-            _animator.SetFloat(ANIM_WALK_SPEED_TRIGGER_NAME, (dir.normalized * _currentMoveSpeed).magnitude);
+            _rigidbody.MovePosition(_rigidbody.position + _movementDirection.normalized * _currentMoveSpeed * Time.fixedDeltaTime);
+            _movementDirection = Vector2.zero;
         }
     }
 
@@ -161,6 +165,32 @@ public class Robot : MonoBehaviour
         _canvasTransform.gameObject.SetActive(false);
         _rigidbody.useFullKinematicContacts = true;
         _rigidbody.isKinematic = true;
+        _currentState = State.Dead;
         OnDeath?.Invoke();
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (_currentState == State.Dead)
+        {
+            return;
+        }
+
+        Debug.Log($"Enter {other.name}");
+        var objective = other.gameObject.GetComponent<Objective>();
+        if (objective)
+        {
+            DropSegment(objective.LinePosition);
+            Die();
+        }
+    }
+
+    // void OnTriggerExit2D(Collider2D other)
+    // {
+    //     var objective = other.gameObject.GetComponent<Objective>();
+    //     if (objective)
+    //     {
+
+    //     }
+    // }
 }
