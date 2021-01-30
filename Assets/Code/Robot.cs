@@ -63,7 +63,7 @@ public class Robot : MonoBehaviour
             var dist = Vector2.Distance(transform.position, _previousLinePosition);
 
             var normalized = dist / _lineSegmentLength;
-            _currentMoveSpeed = _minMoveSpeed + _maxMoveSpeed * _struggleCurve.Evaluate(1f - normalized);
+            _currentMoveSpeed = _minMoveSpeed + _maxMoveSpeed * _struggleCurve.Evaluate(normalized);
             _sliderImage.fillAmount = normalized;
 
             if (dist > _lineSegmentLength)
