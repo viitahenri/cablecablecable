@@ -53,6 +53,8 @@ public class Robot : MonoBehaviour
         _currentLineIndex++;
         _previousLinePosition = transform.position;
 
+        _lineRenderer.materials[1].color = Random.ColorHSV(0f, 1f, .8f, .8f, .8f, .8f);
+
         _currentState = State.Unreeling;
     }
 
