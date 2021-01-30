@@ -7,7 +7,7 @@ using TMPro;
 
 public class Robot : MonoBehaviour
 {
-    private const string ANIM_WALK_SPEED_TRIGGER_NAME = "WalkSpeed";
+    private const string ANIM_WALK_BOOL_NAME = "Walking";
 
     enum State
     {
@@ -94,31 +94,36 @@ public class Robot : MonoBehaviour
 
         if (_currentState == State.Unreeling)
         {
+            bool walking = false;
             // right-front-left-back
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 _movementDirection += Vector2.up;
                 _activeGraphics = _graphicsParents[(int)Direction.Back];
+                walking = true;
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 _movementDirection += Vector2.down;
                 _activeGraphics = _graphicsParents[(int)Direction.Front];
+                walking = true;
             }
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 _movementDirection += Vector2.left;
                 _activeGraphics = _graphicsParents[(int)Direction.Left];
+                walking = true;
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 _movementDirection += Vector2.right;
                 _activeGraphics = _graphicsParents[(int)Direction.Right];
+                walking = true;
             }
 
             _graphicsParents.ForEach(p => p.gameObject.SetActive(p == _activeGraphics ? true : false));
 
-            _animator.SetFloat(ANIM_WALK_SPEED_TRIGGER_NAME, (_movementDirection.normalized * _currentMoveSpeed).magnitude);
+            _animator.SetBool(ANIM_WALK_BOOL_NAME, walking);
 
             _lineRenderer.SetPosition(_currentLineIndex, transform.position);
 
