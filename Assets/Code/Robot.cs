@@ -57,6 +57,7 @@ public class Robot : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _canvasTransform.gameObject.SetActive(false);
     }
 
     public void Init(int index)
@@ -79,6 +80,8 @@ public class Robot : MonoBehaviour
         _currentState = State.Unreeling;
 
         _activeGraphics = _graphicsParents[(int)Direction.Front];
+
+        _canvasTransform.gameObject.SetActive(true);
 
         _isInit = true;
     }
