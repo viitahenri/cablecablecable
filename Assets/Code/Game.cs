@@ -30,23 +30,15 @@ public class Game : MonoBehaviour
         SpawnRobot();
     }
 
-    void Update()
+    void ToggleMap(bool value)
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            ToggleMap();
-        }
-    }
-
-    void ToggleMap()
-    {
-        _mapVisible = !_mapVisible;
-        _map.SetActive(_mapVisible);
-        _mapCamera.enabled = _mapVisible;
+        _map.SetActive(value);
+        _mapCamera.enabled = value;
     }
 
     void SpawnRobot()
     {
+        ToggleMap(false);
         StartCoroutine(SpawnRobotRoutine());
     }
 
@@ -67,5 +59,21 @@ public class Game : MonoBehaviour
     public void IncreaseSegmentCount()
     {
         _currentSegmentCount += _segmentLengthIncrease;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            ToggleMap(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            ToggleMap(false);
+        }
     }
 }
