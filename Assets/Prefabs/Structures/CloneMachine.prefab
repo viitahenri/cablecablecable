@@ -121,7 +121,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302675101859387023}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -138,7 +138,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.6, y: 4}
+  m_Size: {x: 3.78, y: 2.19}
   m_EdgeRadius: 0
 --- !u!1 &5284369673480187402
 GameObject:
@@ -149,6 +149,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5284369673480187415}
+  - component: {fileID: 1379664988089812966}
+  - component: {fileID: 602884149523145118}
   m_Layer: 0
   m_Name: CloneMachine
   m_TagString: Untagged
@@ -172,6 +174,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1379664988089812966
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284369673480187402}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 29b5acc1ba1e14a8ea43ae7b04efdf53, type: 2}
+  - {fileID: 7400000, guid: fe081da87319340ff8298f037a9c0ce4, type: 2}
+  - {fileID: 7400000, guid: 97af121dd073c488589c7ee6fe850566, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &602884149523145118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284369673480187402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b3476b5e7ed438ea47b70df3846831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPosition: {fileID: 534042475}
+  _robotPrefab: {fileID: 6785848276746926339, guid: fb82c6546feac4e1f8051596f635c093, type: 3}
+  _openClip: {fileID: 7400000, guid: 29b5acc1ba1e14a8ea43ae7b04efdf53, type: 2}
+  _openIdleClip: {fileID: 7400000, guid: 97af121dd073c488589c7ee6fe850566, type: 2}
+  _closeClip: {fileID: 7400000, guid: fe081da87319340ff8298f037a9c0ce4, type: 2}
+  _topRenderer: {fileID: 583193618532904183}
 --- !u!1 &8514163628941750211
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8514163628941750211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 3.53, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5284369673480187415}

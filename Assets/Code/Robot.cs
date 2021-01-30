@@ -56,6 +56,11 @@ public class Robot : MonoBehaviour
     private Game _game;
     private int _segmentCount;
 
+    void Awake()
+    {
+        _canvasTransform.gameObject.SetActive(false);
+    }
+
     public void Init(Game game, int index)
     {
         _game = game;
