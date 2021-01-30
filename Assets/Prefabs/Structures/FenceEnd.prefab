@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1445873246728115642}
   - component: {fileID: 3691117762302881934}
-  - component: {fileID: 4474134031700144180}
+  - component: {fileID: 1721000345510976485}
   m_Layer: 0
   m_Name: Art
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2251856965703375985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 5284369673480187415}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 1726780453
   m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 7a0f91ac1c9674525a7f0a2374ca34eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89d8a8d86a2e7402d9381182b004f004, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &4474134031700144180
-PolygonCollider2D:
+--- !u!61 &1721000345510976485
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,22 +96,19 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.86, y: 3.37}
+    oldSize: {x: 2.04, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.934856, y: -1.5948302}
-      - {x: -0.90827215, y: -2.4502523}
-      - {x: -0.9633136, y: -0.85403746}
-      - {x: 0.94078565, y: -0.024754465}
+  serializedVersion: 2
+  m_Size: {x: 2.04, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!1 &5284369673480187402
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5284369673480187415}
   m_Layer: 0
-  m_Name: FenceDiagonal
+  m_Name: FenceEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
