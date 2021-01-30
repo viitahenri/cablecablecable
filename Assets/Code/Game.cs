@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     private Camera _mapCamera;
     private bool _mapVisible = false;
     private GameObject _currentRobot;
+    private int _robotCount = 0;
 
     void Start()
     {
@@ -39,11 +40,13 @@ public class Game : MonoBehaviour
 
     void SpawnRobot()
     {
-        var robot = Instantiate(_robotPrefab);
-        robot.transform.position = Vector3.zero;
+        var robotObj = Instantiate(_robotPrefab);
+        robotObj.transform.position = Vector3.zero;
 
-        _currentRobot = robot;
-        robot.GetComponent<Robot>().OnDeath.AddListener(() => SpawnRobot());
+        _currentRobot = robotObj;
+        var robot = robotObj.GetComponent<Robot>();
+        robot.OnDeath.AddListener(() => SpawnRobot());
+        robot.Init(_robotCount++);
 
         _virtualCamera.Follow = robot.transform;
     }

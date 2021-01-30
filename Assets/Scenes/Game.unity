@@ -634,6 +634,17 @@ MonoBehaviour:
   _virtualCamera: {fileID: 1274156433}
   _robotPrefab: {fileID: 6785848276746926339, guid: fb82c6546feac4e1f8051596f635c093, type: 3}
   _map: {fileID: 1417327120}
+--- !u!114 &1721671418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1667901673480082116, guid: a7549371cb1df476d931584c7e718565, type: 3}
+  m_PrefabInstance: {fileID: 1417327119}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1875386172
 GameObject:
   m_ObjectHideFlags: 3
@@ -790,12 +801,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1374495426}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1721671418}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -817,6 +832,10 @@ PrefabInstance:
       value: Open
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -829,12 +848,20 @@ PrefabInstance:
       value: Door, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Door, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
+      propertyPath: _onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Sprite, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2644087109259748221, guid: c14273e1bf52544759428e31512f9072, type: 3}
       propertyPath: _onUnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

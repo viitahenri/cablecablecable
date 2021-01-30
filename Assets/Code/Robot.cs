@@ -51,11 +51,15 @@ public class Robot : MonoBehaviour
     private State _currentState;
     private float _currentMoveSpeed;
     private Transform _activeGraphics;
+    private bool _isInit = false;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
+    public void Init(int index)
+    {
         var line = Instantiate(_lineRendererPrefab);
         line.transform.position = Vector3.zero;
         _lineRenderer = line.GetComponent<LineRenderer>();
@@ -66,14 +70,23 @@ public class Robot : MonoBehaviour
         _previousLinePosition = transform.position;
 
         _lineRenderer.materials[1].color = Random.ColorHSV(0f, 1f, .8f, .8f, .8f, .8f);
+        for (int i = 0; i < _lineRenderer.materials.Length; i++)
+        {
+            _lineRenderer.materials[i].renderQueue += index;
+        }
 
         _currentState = State.Unreeling;
 
         _activeGraphics = _graphicsParents[(int)Direction.Front];
+
+        _isInit = true;
     }
 
     void Update()
     {
+        if (!_isInit)
+            return;
+
         _hudText.text = $"{_maxSegmentCount - _currentLineIndex - 1}";
 
         if (_currentState == State.Unreeling)
@@ -109,6 +122,9 @@ public class Robot : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!_isInit)
+            return;
+
         if (_currentState == State.Unreeling)
         {
             Vector2 dir = Vector2.zero;
