@@ -2970,9 +2970,9 @@ MonoBehaviour:
   - {fileID: 336346323443652415}
   - {fileID: 8151094324629250909}
   - {fileID: 7885156696933849569}
-  _lineSegmentLength: 2
-  _minMoveSpeed: 1
-  _maxMoveSpeed: 5
+  _lineSegmentLength: 3
+  _minMoveSpeed: 3
+  _maxMoveSpeed: 6
   _struggleCurve:
     serializedVersion: 2
     m_Curve:
