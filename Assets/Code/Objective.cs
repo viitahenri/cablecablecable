@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Objective : MonoBehaviour
 {
     public Vector3 LinePosition { get { return _linePosition.transform.position; } }
+    public bool IsActive { get { return _isActive; } }
 
     [SerializeField] private GameObject _linePosition;
     [SerializeField] private GameObject _light;

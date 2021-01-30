@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Cinemachine;
 
 public class Game : MonoBehaviour
@@ -13,6 +14,7 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject _spawnPosition;
     [SerializeField] private int _startSegmentCount = 10;
     [SerializeField] private int _segmentLengthIncrease = 10;
+    [SerializeField] private List<Objective> _winningObjectives = new List<Objective>();
 
     private Camera _mapCamera;
     private bool _mapVisible = false;
@@ -28,6 +30,25 @@ public class Game : MonoBehaviour
         _currentSegmentCount = _startSegmentCount;
 
         SpawnRobot();
+    }
+
+    void Update()
+    {
+        bool hasWon = true;
+        for (int i = 0; i < _winningObjectives.Count; i++)
+        {
+            hasWon = _winningObjectives[i].IsActive;
+        }
+
+        if (hasWon)
+        {
+            WinGame();
+        }
+    }
+
+    void WinGame()
+    {
+        SceneManager.LoadScene("GameOverScene");
     }
 
     void ToggleMap(bool value)
