@@ -7,6 +7,8 @@ using TMPro;
 
 public class Robot : MonoBehaviour
 {
+    private const string ANIM_WALK_SPEED_TRIGGER_NAME = "WalkSpeed";
+
     enum State
     {
         Unreeling,
@@ -33,10 +35,12 @@ public class Robot : MonoBehaviour
     private int _currentLineIndex = 0;
     private State _currentState;
     private float _currentMoveSpeed;
+    private Animator _animator;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponentInChildren<Animator>();
 
         var line = Instantiate(_lineRendererPrefab);
         line.transform.position = Vector3.zero;
@@ -105,6 +109,8 @@ public class Robot : MonoBehaviour
             }
 
             _rigidbody.MovePosition(_rigidbody.position + dir.normalized * _currentMoveSpeed * Time.fixedDeltaTime);
+
+            _animator.SetFloat(ANIM_WALK_SPEED_TRIGGER_NAME, (dir.normalized * _currentMoveSpeed).magnitude);
         }
     }
 }
