@@ -411,7 +411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 21 robots lots, 7 secrets found, humankind saved
+  m_text: 21 robots lost, 7 secrets found, humankind saved
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47780d2753bb74778b642abf325461c0, type: 2}
   m_sharedMaterial: {fileID: -2877271779331037907, guid: 47780d2753bb74778b642abf325461c0, type: 2}
