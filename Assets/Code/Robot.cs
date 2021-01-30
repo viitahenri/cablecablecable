@@ -22,6 +22,7 @@ public class Robot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _hudText;
     [SerializeField] private Image _sliderImage;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Transform _cableTransform;
 
     [Header("Gameplay properties")]
     [SerializeField] private float _lineSegmentLength = 1f;
@@ -74,6 +75,7 @@ public class Robot : MonoBehaviour
             var normalized = dist / _lineSegmentLength;
             _currentMoveSpeed = _minMoveSpeed + _maxMoveSpeed * _struggleCurve.Evaluate(normalized);
             _sliderImage.fillAmount = normalized;
+            _cableTransform.rotation = Quaternion.AngleAxis(normalized * 360f, Vector3.forward);
 
             if (dist > _lineSegmentLength)
             {

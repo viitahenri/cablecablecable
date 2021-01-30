@@ -784,6 +784,7 @@ MonoBehaviour:
   _hudText: {fileID: 1577686441697667635}
   _sliderImage: {fileID: 6350575185823424104}
   _animator: {fileID: 217815609}
+  _cableTransform: {fileID: 243333791}
   _lineSegmentLength: 2
   _minMoveSpeed: 0.2
   _maxMoveSpeed: 5
