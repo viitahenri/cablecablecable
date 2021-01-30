@@ -777,9 +777,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f2ad4eb30b345bf9aea8f023ef06e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _lineRendererPrefab: {fileID: 3075705991600358952, guid: 584fbb884000245e48b9f470a2cdaf93, type: 3}
   _hudText: {fileID: 1577686441697667635}
   _sliderImage: {fileID: 6350575185823424104}
+  _animator: {fileID: 217815609}
   _lineSegmentLength: 2
   _minMoveSpeed: 0.2
   _maxMoveSpeed: 5

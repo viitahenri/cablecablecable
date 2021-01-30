@@ -15,10 +15,13 @@ public class Robot : MonoBehaviour
         Struggle
     }
 
+    public UnityEvent OnDeath = new UnityEvent();
+
     [Header("References")]
     [SerializeField] private GameObject _lineRendererPrefab;
     [SerializeField] private TextMeshProUGUI _hudText;
     [SerializeField] private Image _sliderImage;
+    [SerializeField] private Animator _animator;
 
     [Header("Gameplay properties")]
     [SerializeField] private float _lineSegmentLength = 1f;
@@ -35,12 +38,10 @@ public class Robot : MonoBehaviour
     private int _currentLineIndex = 0;
     private State _currentState;
     private float _currentMoveSpeed;
-    private Animator _animator;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponentInChildren<Animator>();
 
         var line = Instantiate(_lineRendererPrefab);
         line.transform.position = Vector3.zero;
@@ -58,13 +59,14 @@ public class Robot : MonoBehaviour
     {
         _hudText.text = $"{_maxSegmentCount - _currentLineIndex - 1}";
 
-        if (_lineRenderer.positionCount >= _maxSegmentCount)
-        {
-            _currentState = State.Struggle;
-        }
-
         if (_currentState == State.Unreeling)
         {
+            if (_lineRenderer.positionCount >= _maxSegmentCount)
+            {
+                _currentState = State.Struggle;
+                OnDeath?.Invoke();
+            }
+
             _lineRenderer.SetPosition(_currentLineIndex, transform.position);
 
             var dist = Vector2.Distance(transform.position, _previousLinePosition);
