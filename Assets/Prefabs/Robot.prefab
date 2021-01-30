@@ -2483,7 +2483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &336346323443652415
 Transform:
   m_ObjectHideFlags: 0
@@ -2997,7 +2997,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxSegmentCount: 20
   _onDropSegment:
     m_PersistentCalls:
       m_Calls:
@@ -3722,7 +3721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7410720656640731735
 Transform:
   m_ObjectHideFlags: 0
