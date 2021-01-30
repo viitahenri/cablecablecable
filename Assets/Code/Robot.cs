@@ -11,12 +11,15 @@ public class Robot : MonoBehaviour
         Struggle
     }
 
+    [Header("References")]
     [SerializeField] private GameObject _lineRendererPrefab;
     [SerializeField] private TextMeshProUGUI _hudText;
 
+    [Header("Gameplay properties")]
     [SerializeField] private float _lineSegmentLength = 1f;
     [SerializeField] private float _minMoveSpeed = .2f;
     [SerializeField] private float _maxMoveSpeed = 5f;
+    [SerializeField] private AnimationCurve _struggleCurve = new AnimationCurve();
     [SerializeField] private int _maxSegmentCount = 10;
 
     private Rigidbody2D _rigidbody;
@@ -57,7 +60,7 @@ public class Robot : MonoBehaviour
 
             var dist = Vector2.Distance(transform.position, _previousLinePosition);
 
-            _currentMoveSpeed = Mathf.Lerp(_maxMoveSpeed, _minMoveSpeed, dist / _lineSegmentLength);
+            _currentMoveSpeed = _minMoveSpeed + _maxMoveSpeed * _struggleCurve.Evaluate(1f - dist / _lineSegmentLength);
 
             if (dist > _lineSegmentLength)
             {
