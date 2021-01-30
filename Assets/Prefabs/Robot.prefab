@@ -1,5 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &1579074425
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456460795097749326}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d2918b8493364dd981f7e1c4422b1ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &194458722
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577686441697667633}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d2918b8493364dd981f7e1c4422b1ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6785848276746926339
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +167,33 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxSegmentCount: 20
+  _onDropSegment:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1579074425}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DropSegment
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 194458722}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DropSegment
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &4465796574628235001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -184,8 +249,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 6469705755372826501}
     m_Modifications:
     - target: {fileID: 2002328842081858168, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002328842081858168, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002328842081858168, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002328842081858168, guid: 80bba3e5db64b401881039daae97758f, type: 3}
       propertyPath: m_FillAmount
       value: 0.568
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263393920437678099, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263393920437678099, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263393920437678099, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6200722697038158853, guid: 80bba3e5db64b401881039daae97758f, type: 3}
       propertyPath: m_Name
@@ -275,6 +364,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6200722697277818402, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200722697277818403, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_text
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200722697277818403, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80bba3e5db64b401881039daae97758f, type: 3}
 --- !u!224 &1577686441458003976 stripped
@@ -282,17 +383,27 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6200722697038158872, guid: 80bba3e5db64b401881039daae97758f, type: 3}
   m_PrefabInstance: {fileID: 4893289659702225936}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1577686441697667633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6200722697277818401, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+  m_PrefabInstance: {fileID: 4893289659702225936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1577686441697667635 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6200722697277818403, guid: 80bba3e5db64b401881039daae97758f, type: 3}
   m_PrefabInstance: {fileID: 4893289659702225936}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1577686441697667633}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1456460795097749326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6331522751000558430, guid: 80bba3e5db64b401881039daae97758f, type: 3}
+  m_PrefabInstance: {fileID: 4893289659702225936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6350575185823424104 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2002328842081858168, guid: 80bba3e5db64b401881039daae97758f, type: 3}
