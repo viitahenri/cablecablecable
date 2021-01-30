@@ -111,7 +111,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: right_idle
+  m_Name: idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -215,7 +215,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: right_walk
+  m_Name: walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -327,7 +327,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -347,7 +347,7 @@ AnimatorController:
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
-    m_BlendingMode: 1
+    m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 1
     m_IKPass: 0
@@ -357,10 +357,16 @@ AnimatorController:
     m_Name: Left
     m_StateMachine: {fileID: 2662115378338016525}
     m_Mask: {fileID: 0}
-    m_Motions: []
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: -4627801705092552883}
+      m_Motion: {fileID: 7400000, guid: 296aa4f262ab14d38b6a690bd4f50eda, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: -2785451859125084876}
+      m_Motion: {fileID: 7400000, guid: 4046c452f7f6c4ba79cded578b0d3bc3, type: 2}
     m_Behaviours: []
     m_BlendingMode: 1
-    m_SyncedLayerIndex: -1
+    m_SyncedLayerIndex: 1
     m_DefaultWeight: 1
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
@@ -369,10 +375,16 @@ AnimatorController:
     m_Name: Front
     m_StateMachine: {fileID: -1139987153066824163}
     m_Mask: {fileID: 0}
-    m_Motions: []
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: -4627801705092552883}
+      m_Motion: {fileID: 7400000, guid: 988e6b5ece89a4af0bc3ac929ef4bdd4, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: -2785451859125084876}
+      m_Motion: {fileID: 7400000, guid: c680987f73549485da7a14574734e519, type: 2}
     m_Behaviours: []
     m_BlendingMode: 1
-    m_SyncedLayerIndex: -1
+    m_SyncedLayerIndex: 1
     m_DefaultWeight: 1
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
@@ -381,10 +393,16 @@ AnimatorController:
     m_Name: Back
     m_StateMachine: {fileID: -4281772680468790918}
     m_Mask: {fileID: 0}
-    m_Motions: []
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: -4627801705092552883}
+      m_Motion: {fileID: 7400000, guid: 96738875e32404b2796f78ca22551f9d, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: -2785451859125084876}
+      m_Motion: {fileID: 7400000, guid: 81bb6d55e82384caab17557599702352, type: 2}
     m_Behaviours: []
     m_BlendingMode: 1
-    m_SyncedLayerIndex: -1
+    m_SyncedLayerIndex: 1
     m_DefaultWeight: 1
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
