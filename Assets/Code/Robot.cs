@@ -71,7 +71,7 @@ public class Robot : MonoBehaviour
         _currentLineIndex++;
         _previousLinePosition = transform.position;
 
-        _lineRenderer.materials[1].color = Random.ColorHSV(0f, 1f, .8f, .8f, .8f, .8f);
+        _lineRenderer.materials[1].color = Random.ColorHSV(0f, 1f, .3f, .3f, .5f, .5f);
         for (int i = 0; i < _lineRenderer.materials.Length; i++)
         {
             _lineRenderer.materials[i].renderQueue += index;
