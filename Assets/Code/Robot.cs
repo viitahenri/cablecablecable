@@ -75,7 +75,7 @@ public class Robot : MonoBehaviour
             var normalized = dist / _lineSegmentLength;
             _currentMoveSpeed = _minMoveSpeed + _maxMoveSpeed * _struggleCurve.Evaluate(normalized);
             _sliderImage.fillAmount = normalized;
-            _cableTransform.rotation = Quaternion.AngleAxis(normalized * 360f, Vector3.forward);
+            _cableTransform.rotation = Quaternion.AngleAxis(5f + normalized * 355f, Vector3.forward);
 
             if (dist > _lineSegmentLength)
             {
