@@ -29,6 +29,7 @@ public class Robot : MonoBehaviour
     [SerializeField] private GameObject _lineRendererPrefab;
     [SerializeField] private TextMeshProUGUI _hudText;
     [SerializeField] private Image _sliderImage;
+    [SerializeField] private Transform _canvasTransform;
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _cableTransform;
 
@@ -113,9 +114,6 @@ public class Robot : MonoBehaviour
             if (_lineRenderer.positionCount >= _maxSegmentCount || Input.GetKeyDown(KeyCode.K))
             {
                 _currentState = State.Struggle;
-                OnDeath?.Invoke();
-                _rigidbody.useFullKinematicContacts = true;
-                _rigidbody.isKinematic = true;
             }
         }
     }
@@ -157,5 +155,13 @@ public class Robot : MonoBehaviour
 
             _animator.SetFloat(ANIM_WALK_SPEED_TRIGGER_NAME, (dir.normalized * _currentMoveSpeed).magnitude);
         }
+    }
+
+    void Die()
+    {
+        _canvasTransform.gameObject.SetActive(false);
+        _rigidbody.useFullKinematicContacts = true;
+        _rigidbody.isKinematic = true;
+        OnDeath?.Invoke();
     }
 }
