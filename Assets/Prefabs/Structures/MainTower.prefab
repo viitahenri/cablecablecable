@@ -240,3 +240,5 @@ MonoBehaviour:
   _robotPrefab: {fileID: 6785848276746926339, guid: fb82c6546feac4e1f8051596f635c093, type: 3}
   _map: {fileID: 0}
   _spawnPosition: {fileID: 0}
+  _startSegmentCount: 11
+  _segmentLengthIncrease: 11

@@ -41,7 +41,6 @@ public class Robot : MonoBehaviour
     [SerializeField] private float _minMoveSpeed = .2f;
     [SerializeField] private float _maxMoveSpeed = 5f;
     [SerializeField] private AnimationCurve _struggleCurve = new AnimationCurve();
-    [SerializeField] private int _maxSegmentCount = 10;
 
     [SerializeField] private UnityEvent _onDropSegment = new UnityEvent();
 
@@ -54,9 +53,13 @@ public class Robot : MonoBehaviour
     private Transform _activeGraphics;
     private bool _isInit = false;
     private Vector2 _movementDirection = Vector2.zero;
+    private Game _game;
+    private int _segmentCount;
 
-    public void Init(int index)
+    public void Init(Game game, int index)
     {
+        _game = game;
+        _segmentCount = game.CurrentSegmentCount;
         _rigidbody = GetComponent<Rigidbody2D>();
         var line = Instantiate(_lineRendererPrefab);
         line.transform.position = Vector3.zero;
@@ -87,7 +90,7 @@ public class Robot : MonoBehaviour
         if (!_isInit)
             return;
 
-        _hudText.text = $"{_maxSegmentCount - _currentLineIndex - 1}";
+        _hudText.text = $"{_segmentCount - _currentLineIndex}";
 
         if (_currentState == State.Unreeling)
         {
@@ -131,7 +134,7 @@ public class Robot : MonoBehaviour
                 DropSegment(transform.position);
             }
 
-            if (_lineRenderer.positionCount >= _maxSegmentCount || Input.GetKeyDown(KeyCode.K))
+            if (_currentLineIndex >= _segmentCount || Input.GetKeyDown(KeyCode.K))
             {
                 _currentState = State.Dead;
                 Die();
