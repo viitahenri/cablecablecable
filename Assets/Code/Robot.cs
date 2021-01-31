@@ -8,6 +8,7 @@ using TMPro;
 public class Robot : MonoBehaviour
 {
     private const string ANIM_WALK_BOOL_NAME = "Walking";
+    private const string ANIM_DEATH_BOOL_NAME = "Dead";
 
     enum State
     {
@@ -146,7 +147,6 @@ public class Robot : MonoBehaviour
 
             if (_currentLineIndex >= _segmentCount || Input.GetKeyDown(KeyCode.K))
             {
-                _currentState = State.Dead;
                 Die();
             }
         }
@@ -175,10 +175,20 @@ public class Robot : MonoBehaviour
 
     void Die()
     {
-        _canvasTransform.gameObject.SetActive(false);
+        _currentState = State.Dead;
         _rigidbody.useFullKinematicContacts = true;
         _rigidbody.isKinematic = true;
-        _currentState = State.Dead;
+        _graphicsParents.ForEach(g => g.gameObject.SetActive(false));
+        _graphicsParents[(int)Direction.Front].gameObject.SetActive(true);
+        _canvasTransform.gameObject.SetActive(false);
+        _animator.SetBool(ANIM_DEATH_BOOL_NAME, true);
+        StartCoroutine(DeathRoutine());
+    }
+
+    IEnumerator DeathRoutine()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(2f);
         OnDeath?.Invoke();
     }
 
@@ -191,7 +201,7 @@ public class Robot : MonoBehaviour
 
         Debug.Log($"Enter {other.name}");
         var objective = other.gameObject.GetComponent<Objective>();
-        if (objective)
+        if (objective && !objective.IsActive)
         {
             DropSegment(objective.LinePosition);
             Die();
