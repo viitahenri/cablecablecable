@@ -32,7 +32,7 @@ public class Robot : MonoBehaviour
     [SerializeField] private Image _sliderImage;
     [SerializeField] private Transform _canvasTransform;
     [SerializeField] private Animator _animator;
-    [SerializeField] private Transform _cableTransform;
+    [SerializeField] private List<Transform> _cableTransforms = new List<Transform>();
 
     [Header("Graphics (right-front-left-back)")]
     [SerializeField] private List<Transform> _graphicsParents = new List<Transform>();
@@ -138,7 +138,11 @@ public class Robot : MonoBehaviour
             var normalized = dist / _lineSegmentLength;
             _currentMoveSpeed = _minMoveSpeed + _maxMoveSpeed * _struggleCurve.Evaluate(normalized);
             _sliderImage.fillAmount = normalized;
-            _cableTransform.rotation = Quaternion.AngleAxis(5f + normalized * 355f, Vector3.forward);
+
+            for (int i = 0; i < _cableTransforms.Count; i++)
+            {
+                _cableTransforms[i].rotation = Quaternion.AngleAxis(5f + normalized * 355f, Vector3.forward);
+            }
 
             if (dist > _lineSegmentLength)
             {

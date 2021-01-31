@@ -2985,7 +2985,9 @@ MonoBehaviour:
   _sliderImage: {fileID: 6350575185823424104}
   _canvasTransform: {fileID: 1577686441458003976}
   _animator: {fileID: 217815609}
-  _cableTransform: {fileID: 243333791}
+  _cableTransforms:
+  - {fileID: 8762312113857658676}
+  - {fileID: 243333791}
   _graphicsParents:
   - {fileID: 7410720656640731735}
   - {fileID: 336346323443652415}
