@@ -14,12 +14,14 @@ public class Game : MonoBehaviour
     [SerializeField] private int _startSegmentCount = 10;
     [SerializeField] private int _segmentLengthIncrease = 10;
     [SerializeField] private List<Objective> _winningObjectives = new List<Objective>();
+    [SerializeField] private GameObject _endCanvasPrefab;
 
     private Camera _mapCamera;
     private bool _mapVisible = false;
     private GameObject _currentRobot;
     private int _robotCount = 0;
     private int _currentSegmentCount = 0;
+    private bool _wonTriggered = false;
 
     void Start()
     {
@@ -39,15 +41,44 @@ public class Game : MonoBehaviour
             hasWon = _winningObjectives[i].IsActive;
         }
 
-        if (hasWon)
+        if (hasWon && !_wonTriggered)
         {
             WinGame();
+            _wonTriggered = true;
         }
     }
 
     void WinGame()
     {
-        SceneManager.LoadScene("GameOverScene");
+        StartCoroutine(WinRoutine());
+    }
+
+    IEnumerator WinRoutine()
+    {
+        _virtualCamera.enabled = false;
+        yield return new WaitForEndOfFrame();
+        var camera = Camera.main;
+        var start = camera.transform.position;
+        var target = transform.position + Vector3.up * 2f;
+        target.z = camera.transform.position.z;
+        float timer = 0f;
+        while (timer <= 4f)
+        {
+            timer += Time.deltaTime;
+            camera.transform.position = Vector3.Lerp(start, target, timer / 4f);
+            yield return new WaitForEndOfFrame();
+        }
+
+        var endCanvas = Instantiate(_endCanvasPrefab).GetComponent<EndCanvas>();
+        endCanvas.StartEnd();
+
+        timer = 0f;
+        while (timer <= 6f)
+        {
+            timer += Time.deltaTime;
+            camera.transform.position = Vector3.Lerp(target, target + Vector3.up * 5f, timer / 6f);
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     void ToggleMap(bool value)
@@ -58,6 +89,9 @@ public class Game : MonoBehaviour
 
     void SpawnRobot()
     {
+        if (_wonTriggered)
+            return;
+
         ToggleMap(false);
         StartCoroutine(SpawnRobotRoutine());
     }

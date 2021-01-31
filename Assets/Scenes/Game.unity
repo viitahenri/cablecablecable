@@ -1109,6 +1109,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1274156433}
     - target: {fileID: 7217943348497422743, guid: 086a5f02897e649c19486659824ffcea, type: 3}
+      propertyPath: _endCanvasPrefab
+      value: 
+      objectReference: {fileID: 4193011090526386641, guid: 41896bca364c542ff8dd29191a727248, type: 3}
+    - target: {fileID: 7217943348497422743, guid: 086a5f02897e649c19486659824ffcea, type: 3}
       propertyPath: _startSegmentCount
       value: 25
       objectReference: {fileID: 0}
