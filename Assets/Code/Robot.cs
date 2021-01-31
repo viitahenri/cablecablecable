@@ -159,7 +159,7 @@ public class Robot : MonoBehaviour
                 DropSegment(transform.position);
             }
 
-            if (_currentLineIndex >= _segmentCount || Input.GetKeyDown(KeyCode.K))
+            if (_currentLineIndex >= _segmentCount || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R))
             {
                 Die();
             }
