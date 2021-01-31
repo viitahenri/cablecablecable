@@ -190,7 +190,7 @@ public class Robot : MonoBehaviour
     void Die()
     {
         _currentState = State.Dead;
-        _rigidbody.useFullKinematicContacts = true;
+        _rigidbody.useFullKinematicContacts = false;
         _rigidbody.isKinematic = true;
         _graphicsParents.ForEach(g => g.gameObject.SetActive(false));
         _graphicsParents[(int)Direction.Front].gameObject.SetActive(true);
