@@ -189,6 +189,18 @@ public class Robot : MonoBehaviour
 
     void Die()
     {
+        var colliders = GetComponentsInChildren<Collider2D>();
+        foreach(var c in colliders)
+        {
+            c.enabled = false;
+        }
+
+        var renderers = GetComponentsInChildren<SpriteRenderer>();
+        foreach(var r in renderers)
+        {
+            r.sortingLayerName = "Default";
+        }
+
         _currentState = State.Dead;
         _rigidbody.useFullKinematicContacts = false;
         _rigidbody.isKinematic = true;

@@ -30,14 +30,14 @@ public class Spawner : MonoBehaviour
         _topRenderer.sortingOrder = 999;
         yield return new WaitForEndOfFrame();
 
-        for (int i = 0; i < _robots.Count; i++)
-        {
-            if (Vector2.Distance(_spawnPosition.transform.position, _robots[i].transform.position) < 2f)
-            {
-                Destroy(_robots[i]);
-                _robots.RemoveAt(i);
-            }
-        }
+        // for (int i = 0; i < _robots.Count; i++)
+        // {
+        //     if (Vector2.Distance(_spawnPosition.transform.position, _robots[i].transform.position) < 2f)
+        //     {
+        //         Destroy(_robots[i]);
+        //         _robots.RemoveAt(i);
+        //     }
+        // }
 
         var robotObj = Instantiate(_robotPrefab);
         _robots.Add(robotObj);
