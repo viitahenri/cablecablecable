@@ -60,3 +60,4 @@ crashlytics-build.properties
 
 /Sounds/
 /UserSettings/
+.DS_Store
