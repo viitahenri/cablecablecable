@@ -185,13 +185,14 @@ public class Robot : MonoBehaviour
         _graphicsParents.ForEach(g => g.gameObject.SetActive(false));
         _graphicsParents[(int)Direction.Front].gameObject.SetActive(true);
         _canvasTransform.gameObject.SetActive(false);
-        _animator.SetBool(ANIM_DEATH_BOOL_NAME, true);
         StartCoroutine(DeathRoutine());
     }
 
     IEnumerator DeathRoutine()
     {
+        _animator.SetBool(ANIM_WALK_BOOL_NAME, false);
         yield return new WaitForEndOfFrame();
+        _animator.SetBool(ANIM_DEATH_BOOL_NAME, true);
         yield return new WaitForSeconds(2f);
         OnDeath?.Invoke();
     }
