@@ -62,6 +62,7 @@ public class Robot : MonoBehaviour
     private Game _game;
     private int _segmentCount;
     private AudioSource _audioSource;
+    private PressurePlate _currentPressurePlate;
 
     void Awake()
     {
@@ -69,6 +70,11 @@ public class Robot : MonoBehaviour
         _canvasTransform.gameObject.SetActive(false);
 
         _audioSource.PlayOneShot(_spawnSound);
+    }
+
+    public bool IsAlive()
+    {
+        return _currentState != State.Dead;
     }
 
     public void Init(Game game, int index)
@@ -189,6 +195,13 @@ public class Robot : MonoBehaviour
 
     void Die()
     {
+        _currentState = State.Dead;
+
+        if (_currentPressurePlate != null)
+        {
+            _currentPressurePlate.SetDone();
+        }
+
         var colliders = GetComponentsInChildren<Collider2D>(true);
         foreach(var c in colliders)
         {
@@ -198,10 +211,10 @@ public class Robot : MonoBehaviour
         var renderers = GetComponentsInChildren<SpriteRenderer>(true);
         foreach(var r in renderers)
         {
-            r.sortingLayerName = "Default";
+            r.sortingLayerName = "Buildings";
+            r.sortingOrder += 100;
         }
 
-        _currentState = State.Dead;
         _rigidbody.useFullKinematicContacts = false;
         _rigidbody.isKinematic = true;
         _graphicsParents.ForEach(g => g.gameObject.SetActive(false));
@@ -228,6 +241,8 @@ public class Robot : MonoBehaviour
             return;
         }
 
+        _currentPressurePlate = other.GetComponent<PressurePlate>();
+
         Debug.Log($"Enter {other.name}");
         var objective = other.gameObject.GetComponent<Objective>();
         if (objective && !objective.IsActive)
@@ -237,12 +252,12 @@ public class Robot : MonoBehaviour
         }
     }
 
-    // void OnTriggerExit2D(Collider2D other)
-    // {
-    //     var objective = other.gameObject.GetComponent<Objective>();
-    //     if (objective)
-    //     {
-
-    //     }
-    // }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        var plate = other.gameObject.GetComponent<PressurePlate>();
+        if (plate == _currentPressurePlate)
+        {
+            _currentPressurePlate = null;
+        }
+    }
 }
