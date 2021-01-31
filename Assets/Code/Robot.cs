@@ -189,13 +189,13 @@ public class Robot : MonoBehaviour
 
     void Die()
     {
-        var colliders = GetComponentsInChildren<Collider2D>();
+        var colliders = GetComponentsInChildren<Collider2D>(true);
         foreach(var c in colliders)
         {
             c.enabled = false;
         }
 
-        var renderers = GetComponentsInChildren<SpriteRenderer>();
+        var renderers = GetComponentsInChildren<SpriteRenderer>(true);
         foreach(var r in renderers)
         {
             r.sortingLayerName = "Default";
