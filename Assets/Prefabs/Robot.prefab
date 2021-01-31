@@ -4275,37 +4275,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6469705755372826501}
     m_Modifications:
-    - target: {fileID: 748160043967906077, guid: 80bba3e5db64b401881039daae97758f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 748160043967906077, guid: 80bba3e5db64b401881039daae97758f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1989891337055199198, guid: 80bba3e5db64b401881039daae97758f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4262587060254762921, guid: 80bba3e5db64b401881039daae97758f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4727715799531395263, guid: 80bba3e5db64b401881039daae97758f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6200722697038158853, guid: 80bba3e5db64b401881039daae97758f, type: 3}
       propertyPath: m_Name
       value: RobotCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200722697038158853, guid: 80bba3e5db64b401881039daae97758f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200722697038158855, guid: 80bba3e5db64b401881039daae97758f, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1726780453
       objectReference: {fileID: 0}
     - target: {fileID: 6200722697038158872, guid: 80bba3e5db64b401881039daae97758f, type: 3}
       propertyPath: m_Pivot.x
@@ -4390,14 +4362,6 @@ PrefabInstance:
     - target: {fileID: 6200722697038158872, guid: 80bba3e5db64b401881039daae97758f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200722697277818401, guid: 80bba3e5db64b401881039daae97758f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6331522751000558430, guid: 80bba3e5db64b401881039daae97758f, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80bba3e5db64b401881039daae97758f, type: 3}

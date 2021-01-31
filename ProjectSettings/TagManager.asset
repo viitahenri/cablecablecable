@@ -47,3 +47,6 @@ TagManager:
   - name: Robot
     uniqueID: 1726780453
     locked: 0
+  - name: GUI
+    uniqueID: 311101785
+    locked: 0
