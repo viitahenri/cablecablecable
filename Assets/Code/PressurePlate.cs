@@ -31,7 +31,10 @@ public class PressurePlate : MonoBehaviour
         {
             var robot = other.attachedRigidbody.GetComponent<Robot>();
             if (!robot.IsAlive())
+            {
+                _isDone = true;
                 return;
+            }
             _onUnPressed?.Invoke();
             _isPressed = false;
         }
