@@ -44,11 +44,7 @@ public class Game : MonoBehaviour
 
     void Update()
     {
-        bool hasWon = true;
-        for (int i = 0; i < _winningObjectives.Count; i++)
-        {
-            hasWon = _winningObjectives[i].IsActive;
-        }
+        bool hasWon = _winningObjectives.TrueForAll(o => o.IsActive);
 
         if (hasWon && !_wonTriggered)
         {
