@@ -80,6 +80,11 @@ public class Game : MonoBehaviour
         _currentSegmentCount += _segmentLengthIncrease;
     }
 
+    public void SetSpawner(Spawner _newSpawner)
+    {
+        _spawner = _newSpawner;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
