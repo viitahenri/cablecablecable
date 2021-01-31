@@ -15,6 +15,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private SpriteRenderer _topRenderer;
     
     private Animation _animation;
+    private List<GameObject> _robots = new List<GameObject>();
 
     void Start()
     {
@@ -29,7 +30,17 @@ public class Spawner : MonoBehaviour
         _topRenderer.sortingOrder = 999;
         yield return new WaitForEndOfFrame();
 
+        for (int i = 0; i < _robots.Count; i++)
+        {
+            if (Vector2.Distance(_spawnPosition.transform.position, _robots[i].transform.position) < 2f)
+            {
+                Destroy(_robots[i]);
+                _robots.RemoveAt(i);
+            }
+        }
+
         var robotObj = Instantiate(_robotPrefab);
+        _robots.Add(robotObj);
         robotObj.transform.position = _spawnPosition.transform.position;
         camera.Follow = robotObj.transform;
 
