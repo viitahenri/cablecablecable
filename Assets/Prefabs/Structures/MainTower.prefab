@@ -746,9 +746,10 @@ MonoBehaviour:
   _startSegmentCount: 11
   _segmentLengthIncrease: 11
   _winningObjectives: []
-  _endCanvasPrefab: {fileID: 0}
+  _endCanvasPrefab: {fileID: 4193011090526386641, guid: 41896bca364c542ff8dd29191a727248, type: 3}
   _musicSource: {fileID: 6954865329736824748}
   _startMusic: {fileID: 8300000, guid: 758132987b3c14407b8f33adfe25aab2, type: 3}
+  _ambientSource: {fileID: 4183759716130907899}
 --- !u!61 &7305118095818942818
 BoxCollider2D:
   m_ObjectHideFlags: 0

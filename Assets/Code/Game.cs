@@ -19,6 +19,7 @@ public class Game : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioClip _startMusic;
+    [SerializeField] private AudioSource _ambientSource;
 
     private Camera _mapCamera;
     private bool _mapVisible = false;
@@ -74,8 +75,11 @@ public class Game : MonoBehaviour
         {
             timer += Time.deltaTime;
             camera.transform.position = Vector3.Lerp(start, target, timer / 4f);
+            _ambientSource.volume = 1f - (timer / 4f);
             yield return new WaitForEndOfFrame();
         }
+
+        _ambientSource.Stop();
 
         var endCanvas = Instantiate(_endCanvasPrefab).GetComponent<EndCanvas>();
         endCanvas.StartEnd();

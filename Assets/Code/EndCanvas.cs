@@ -8,9 +8,13 @@ public class EndCanvas : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _background;
     [SerializeField] private CanvasGroup _text;
+    [SerializeField] private List<AudioClip> _endDialUps = new List<AudioClip>();
+
+    private AudioSource _audioSource;
 
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         _background.alpha = 0f;
         _text.alpha = 0f;
     }
@@ -24,7 +28,7 @@ public class EndCanvas : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         float timer = 0f;
-        float fadeTime = 5f;
+        float fadeTime = 6f;
         float endShowTime = 3f;
         while (timer <= fadeTime)
         {
@@ -33,7 +37,14 @@ public class EndCanvas : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        // cable model sound
+        timer = 0f;
+
+        _audioSource.PlayOneShot(_endDialUps[0]);
+        yield return new WaitForSeconds(.5f);
+        _audioSource.PlayOneShot(_endDialUps[1]);
+        yield return new WaitForSeconds(_endDialUps[1].length);
+        _audioSource.pitch = 1.1f;
+        _audioSource.PlayOneShot(_endDialUps[0]);
 
         timer = 0f;
         while (timer <= endShowTime)
@@ -42,5 +53,9 @@ public class EndCanvas : MonoBehaviour
             _text.alpha = Mathf.Lerp(0f, 1f, timer / endShowTime);
             yield return new WaitForEndOfFrame();
         }
+
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene("cable_intro");
     }
 }
