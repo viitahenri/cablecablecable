@@ -16,21 +16,29 @@ public class Game : MonoBehaviour
     [SerializeField] private List<Objective> _winningObjectives = new List<Objective>();
     [SerializeField] private GameObject _endCanvasPrefab;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource _musicSource;
+    [SerializeField] private AudioClip _startMusic;
+
     private Camera _mapCamera;
     private bool _mapVisible = false;
     private GameObject _currentRobot;
     private int _robotCount = 0;
     private int _currentSegmentCount = 0;
     private bool _wonTriggered = false;
+    private AudioSource _audioSource;
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _mapCamera = _map.GetComponent<Camera>();
         _map.SetActive(_mapVisible);
         _mapCamera.enabled = _mapVisible;
         _currentSegmentCount = _startSegmentCount;
 
         SpawnRobot();
+
+        _musicSource?.PlayOneShot(_startMusic);
     }
 
     void Update()

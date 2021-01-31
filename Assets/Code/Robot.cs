@@ -45,6 +45,11 @@ public class Robot : MonoBehaviour
 
     [SerializeField] private UnityEvent _onDropSegment = new UnityEvent();
 
+    [Header("Sounds")]
+    [SerializeField] private List<AudioClip> _rachetSounds = new List<AudioClip>();
+    [SerializeField] private AudioClip _spawnSound;
+    [SerializeField] private AudioClip _deathSound;
+
     private Rigidbody2D _rigidbody;
     private LineRenderer _lineRenderer;
     private Vector2 _previousLinePosition;
@@ -56,10 +61,14 @@ public class Robot : MonoBehaviour
     private Vector2 _movementDirection = Vector2.zero;
     private Game _game;
     private int _segmentCount;
+    private AudioSource _audioSource;
 
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         _canvasTransform.gameObject.SetActive(false);
+
+        _audioSource.PlayOneShot(_spawnSound);
     }
 
     public void Init(Game game, int index)
@@ -146,6 +155,7 @@ public class Robot : MonoBehaviour
 
             if (dist > _lineSegmentLength)
             {
+                _audioSource.PlayOneShot(_rachetSounds[Random.Range(0, _rachetSounds.Count)]);
                 DropSegment(transform.position);
             }
 
@@ -186,6 +196,8 @@ public class Robot : MonoBehaviour
         _graphicsParents[(int)Direction.Front].gameObject.SetActive(true);
         _canvasTransform.gameObject.SetActive(false);
         StartCoroutine(DeathRoutine());
+
+        _audioSource.PlayOneShot(_deathSound);
     }
 
     IEnumerator DeathRoutine()
